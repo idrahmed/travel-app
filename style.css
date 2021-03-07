@@ -1,0 +1,473 @@
+*, 
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-family: 'Nunito', sans-serif;
+    font-size: 10px;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+p {
+    font-size: 1.6rem;
+}
+
+img{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+section{
+    padding: 5rem 0;
+}
+
+
+header {
+    width: 100%;
+    height: 5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;   
+    /* for -1, places image behind content  */
+}
+
+/* both heading and section hero have containers */
+.container {   
+    width: 100%;
+    max-width: 98rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(225,225,225,.2);
+    
+}
+
+.nav-brand {
+    width: 2rem;
+}
+
+/* both open and close icons */
+.menu-icons i { 
+    font-size: 3.5rem;
+    color: #fafafa;
+    cursor: pointer;
+}
+
+.close i {
+    color: #eb648c
+}
+
+.nav-list{
+    width: 25rem;
+    height: 100vh;
+    background-color: #d7d4ed;
+    position: fixed;
+    right: -26rem;
+    top: 0;
+    /* flex enables us to use align items */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;  
+    z-index: 1500;
+    transition: all 450ms ease-in-out;
+}
+
+.nav-list.active{
+    right: 0;
+}
+
+.close{
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+}
+
+.nav-item{
+    margin: 1.5rem 0;
+}
+
+.nav-link{
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: rgb(0, 0, 0, 0.7);
+    position: relative;
+}
+
+.nav-link:hover{
+    color: #eb648c;
+    transition: color 300ms ease-in-out;
+}
+
+.current{
+    color: #eb648c;
+}
+
+.nav-link::before,
+.current::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -.5rem;
+    background-color: #eb648c;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 500ms;
+}
+.current::before{
+    transform: scaleX(1)
+}
+.nav-link:hover::before{
+    transform: scaleX(1);
+}
+
+
+
+/* hero */
+.hero {
+    width: 100%;
+    height: 80vh;
+    background: linear-gradient(135deg, rgba(34,139,34,0.9) 0%, rgba(72,56,149,0.8) 100%), url("./images/header-bg.jpg") center no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.hero::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 4.6rem;
+    background: url(images/wave-small.png) center no-repeat;
+    background-size: cover;
+}
+
+.main-message{
+    width: 100%;
+    color: #fafafa;
+    text-transform: uppercase;
+    transform: translateY(20%);
+}
+
+.main-message h3 {
+    font-size: 1.6rem;
+}
+
+.main-message h1 {
+    font-family: 'Aldrich' sans-serif;
+    font-size: 4rem;
+    margin: 1rem 0;
+}
+
+.main-message p{
+    text-transform: none;
+}
+
+.btn{
+    background-color: #eb648c;
+    border-radius: 2rem;
+    color: #fafafa;
+    display: inline-block;
+    margin: 3rem 0;
+    padding: 1rem 2.5rem;
+    text-transform: uppercase;
+    transition: background-color 400ms;
+    font-size: 1.4rem;
+}
+
+.btn:hover{
+    background-color: #ce587b;
+}
+
+/* experience the outdoors */
+
+.experience-outdoors {
+    padding: 0;
+}
+
+.title-heading {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 10rem;
+    color: rgba(0,0,0,.8);
+}
+
+.title-heading h3 {
+    font-size: 1.4rem;
+}
+
+.title-heading h1{
+    font-family: 'Aldrich';
+    font-size: 2rem;
+    margin: .5rem 0 1rem;
+}
+
+.title-heading p {
+    text-transform: none;
+}
+
+.activities-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+    grid-gap: 2.5rem;
+    
+    
+}
+
+.activities-grid-item p {
+    padding-bottom: 2rem;
+}
+
+.activities-grid-item {
+    height: 45rem;
+    padding: 5rem;
+    color: #fafafa;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+    
+}
+
+.activities-grid-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(49,24,131,0.9) 0%, rgba(72,56,149,0.8) 100%);
+    z-index: -1;
+}
+
+.star-gazing {
+    background-image: url("./images/stars.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hiking {
+    background-image: url("./images/hiking.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.camping {
+    background-image: url("./images/camping.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.activities-grid-item i {
+    font-size: 4rem;
+    color: #eb648c;
+}
+
+.activities-grid-item h1{
+    font-family: 'Aldrich', sans-serif;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    margin: 2rem 0;
+}
+
+/* testimonials */
+
+.testimonials{
+    width: 100%;
+    height: 80vh;
+    background: linear-gradient(135deg, rgba(72,56,149,0.8) 0%, rgba(34,139,34,0.9) 100%)
+    , url("./images/testimonials-bg.jpg") center no-repeat fixed ;
+    background-size: cover;
+    position: relative;
+}
+
+.testimonials::before{
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 0;
+    width: 100%;
+    height: 4.7rem;
+    background: url("./images/wave-small-reversed.png") center no-repeat;
+    background-size: cover;
+}
+
+.testimonial{
+    width: 100%;
+    color: #fafafa;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.testimonial-text-box {
+    padding: 0 1.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.testimonial-text-box i{
+    position: absolute;
+    top: -8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 8rem;
+    color: #eb648c;
+    opacity: .5;
+    z-index: -1;
+}
+
+.testimonial-customer img{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 100%;
+    border: 3px solid #eb648c;
+}
+
+/* Begin adventures */
+
+.adventure-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.adventure-grid-item p{
+    color: rgba(0,0,0,.8)    
+}
+
+footer {
+    padding: 2.5rem 0;
+    background-color: black;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5)
+}
+
+/* Media queries */
+
+
+
+@media screen and (min-width: 470px) {
+    .hero::before{
+        /* important to specify height same as the height of image */
+        height: 9.4rem;  
+        background: url("./images/wave-medium.png");
+        background-size: cover;
+        
+    }
+
+    .testimonials::before{
+        /* important to specify height same as the height of image */
+        height: 9.4rem;  
+        background: url("./images/wave-medium-reversed.png");
+        background-size: cover;
+    }
+
+    .main-message{
+        transform: translateY(10%);
+    }
+
+}
+
+@media screen and (max-width: 876px) and (min-width: 592px) {
+    .camping {
+        transform: translateX(50%);
+    }
+}
+
+@media screen and (min-width: 700px) {
+    header {
+        height: 8rem;
+    }
+
+    .nav-brand{
+        width: 3.5rem;
+    }
+
+    .nav-list{
+        width: initial;
+        height: initial;
+        background-color: transparent;
+        position: initial;
+        top: initial;
+        right: initial;
+        flex-direction: row;
+        transition: initial;      
+    }
+
+    .menu-icons{
+        display: none;
+    }
+
+    .nav-item{
+        margin: 0 2.5rem;
+    }
+
+    .nav-link{
+        color: #fafafa;
+        font-size: 1.3rem;
+    }
+
+    .current{
+        color: #eb648c;
+    }
+    
+    .hero {
+        height: 70vh;
+    }
+
+   .title-heading h1{
+       font-size: 2.5rem;
+   }
+}
+
+@media screen and (min-width: 950px) {
+    .hero::before{
+        /* important to specify height same as the height of image */
+        height: 22.7rem;  
+        background: url("./images/wave-large.png");
+        background-size: cover;
+    }
+
+    .testimonials::before{
+        /* important to specify height same as the height of image */
+        height: 22.7rem;  
+        background: url("./images/wave-large-reversed.png");
+        background-size: cover;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .hero {
+        height: 75vh;
+    }
+}
